@@ -121,7 +121,18 @@ class gitlab (
   $omniauth_providers                 = $::gitlab::params::omniauth_providers,
 
   #
-  # 3. Advanced settings
+  # 3. Database settings
+  # ==========================
+  $pgsql_enabled    = $::gitlab::params::pgsql_enabled,
+  $pgsql_dbencoding = $::gitlab::params::pgsql_encoding,
+  $pgsql_database   = $::gitlab::params::pgsql_database,
+  $pgsql_host       = $::gitlab::params::pgsql_host,
+  $pgsql_port       = $::gitlab::params::pgsql_port,
+  $pgsql_username   = $::gitlab::params::pgsql_username,
+  $pgsql_password   = $::gitlab::params::pgsql_password,
+
+  #
+  # 4. Advanced settings
   # ==========================
 
   $satellites_path             = $::gitlab::params::satellites_path,
@@ -139,7 +150,7 @@ class gitlab (
   $git_timeout                 = $::gitlab::params::git_timeout,
 
   #
-  # 4. Extra customization
+  # 5. Extra customization
   # ==========================
 
   $extra_google_analytics_id = $::gitlab::params::extra_google_analytics_id,
@@ -148,7 +159,7 @@ class gitlab (
   $extra_sign_in_text        = $::gitlab::params::extra_sign_in_text,
 
   #
-  # 5. Omnibus customization
+  # 6. Omnibus customization
   # ==========================
 
   $redis_port       = $::gitlab::params::redis_port,

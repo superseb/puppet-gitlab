@@ -63,8 +63,22 @@ gitlab_rails['ldap_sync_ssh_keys'] = '<%= @ldap_sync_ssh_keys %>'
 <% if @ldap_admin_group and @gitlab_release == 'enterprise' %>
 gitlab_rails['ldap_admin_group'] = '<%= @ldap_admin_group %>'
 <% end -%>
-
-# 3. Advanced settings
+#
+# 3. Database settings
+# ==========================
+<% if @pgsql_enabled == true -%>
+# Disable embedded PostgreSQL server
+postgresql['enable'] = false
+gitlab_rails['db_adapter'] = 'postgresql'
+gitlab_rails['db_encoding'] = '<%= @pgsql_encoding %>'
+gitlab_rails['db_database'] = '<%= @pgsql_database %>'
+gitlab_rails['db_host'] = '<%= @pgsql_host %>'
+gitlab_rails['db_port'] = '<%= @pgsql_port %>'
+gitlab_rails['db_username'] = '<%= @pgsql_username %>'
+gitlab_rails['db_password'] = '<%= @pgsql_password %>'
+<% end -%>
+#
+# 4. Advanced settings
 # ==========================
 <% if @satellites_path  -%>gitlab_rails['satellites_path'] = '<%= @satellites_path %>'  <% end %>
 <% if @backup_path      -%>gitlab_rails['backup_path'] = '<%= @backup_path %>'          <% end %>
@@ -79,14 +93,14 @@ gitlab_rails['ldap_admin_group'] = '<%= @ldap_admin_group %>'
 <% if @git_max_size -%>gitlab_rails['git_max_size'] = <%= @git_max_size %>      <% end %>
 <% if @git_timeout -%>gitlab_rails['git_timeout'] = <%= @git_timeout %>         <% end %>
 #
-# 4. Extra customization
+# 5. Extra customization
 # ==========================
 <% if @extra_google_analytics_id  -%>gitlab_rails['extra_google_analytics_id'] = '<%= @extra_google_analytics_id %>'  <% end %>
 <% if @extra_piwik_url            -%>gitlab_rails['extra_piwik_url'] = '<%= @extra_piwik_url %> '                     <% end %>
 <% if @extra_piwik_site_id        -%>gitlab_rails['extra_piwik_site_id'] = '<%= @extra_piwik_site_id %>'              <% end %>
 <% if @extra_sign_in_text         -%>gitlab_rails['extra_sign_in_text'] = '<%= @extra_sign_in_text %>'                <% end %>
 #
-# 5. Omnibus customization
+# 6. Omnibus customization
 # ==========================
 <% if @redis_port       -%>redis['port'] = <%= @redis_port %>            <% end %>
 <% if @postgresql_port  -%>postgresql['port'] = <%= @postgresql_port %>  <% end %>

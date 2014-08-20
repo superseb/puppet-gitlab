@@ -95,7 +95,18 @@ class gitlab::params {
   $omniauth_providers                = undef # See 'tests/omniauth.pp' for examples
 
 #
-# 3. Advanced settings
+# 3. Database settings 
+# ==========================
+  $pgsql_enabled    = false
+  $pgsql_dbencoding = 'unicode'
+  $pgsql_database   = undef
+  $pgsql_host       = undef
+  $pgsql_port       = 5432
+  $pgsql_username   = undef
+  $pgsql_password   = undef
+
+#
+# 4. Advanced settings
 # ==========================
   $satellites_path             = undef # /var/opt/gitlab/git-data/gitlab-satellites
   
@@ -117,7 +128,7 @@ class gitlab::params {
   $git_timeout                 = undef # 10
 
 #
-# 4. Extra customization
+# 5. Extra customization
 # ==========================
   $extra_google_analytics_id = undef
   
@@ -127,7 +138,7 @@ class gitlab::params {
   $extra_sign_in_text        = undef # Allows for company logo/name on login page. See 'tests/sign_in_text.pp' for an example
   
 #
-# 5. Omnibus customization
+# 6. Omnibus customization
 # ==========================
   $redis_port       = undef # (default: 6379)
   $postgresql_port  = undef # (default: 5432)
