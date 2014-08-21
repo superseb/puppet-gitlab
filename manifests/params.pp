@@ -98,7 +98,7 @@ class gitlab::params {
 # 3. Database settings 
 # ==========================
   $pgsql_enabled    = false
-  $pgsql_dbencoding = 'unicode'
+  $pgsql_encoding = 'unicode'
   $pgsql_database   = undef
   $pgsql_host       = undef
   $pgsql_port       = 5432
