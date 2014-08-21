@@ -124,7 +124,7 @@ class gitlab (
   # 3. Database settings
   # ==========================
   $pgsql_enabled    = $::gitlab::params::pgsql_enabled,
-  $pgsql_dbencoding = $::gitlab::params::pgsql_encoding,
+  $pgsql_encoding = $::gitlab::params::pgsql_encoding,
   $pgsql_database   = $::gitlab::params::pgsql_database,
   $pgsql_host       = $::gitlab::params::pgsql_host,
   $pgsql_port       = $::gitlab::params::pgsql_port,
